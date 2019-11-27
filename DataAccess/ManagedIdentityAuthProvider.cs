@@ -7,6 +7,7 @@ namespace DacShipper
     {
         private readonly AzureServiceTokenProvider _managedIdentityTokenProvider = new AzureServiceTokenProvider();
 
-        public string GetValidAccessToken() => _managedIdentityTokenProvider.GetAccessTokenAsync("https://database.windows.net/", "72f988bf-86f1-41af-91ab-2d7cd011db47").Result;
+        // TODO: if your identity belongs in multiple directories, you'll need to provide that directory ID in the GetAccessTokenAsync call below.
+        public string GetValidAccessToken() => _managedIdentityTokenProvider.GetAccessTokenAsync("https://database.windows.net/").Result;
     }
 }
